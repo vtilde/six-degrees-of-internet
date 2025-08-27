@@ -1,0 +1,9 @@
+{
+    "version": "1",
+    "id": "nlss",
+    "name": "NorthernLion Live Super Show",
+    "members": [
+        {"id": "northernlion", "type": "member"},
+        {"id": "dumbdog", "type": "member"}
+    ]
+}

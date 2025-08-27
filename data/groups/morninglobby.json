@@ -1,0 +1,9 @@
+{
+    "version": "1",
+    "id": "morninglobby",
+    "name": "Morning Lobby",
+    "members": [
+        {"id": "dumbdog", "type": "member"},
+        {"id": "smajor", "type": "member"}
+    ]
+}
