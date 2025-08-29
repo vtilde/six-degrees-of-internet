@@ -8,17 +8,34 @@ cur = con.cursor()
 
 def search(start, end):
     queue = []
-    searched = []
+    explored = {} # "id": "parent"
     queue.append(start)
+    explored[start] = None
     while len(queue) > 0:
+        current_node = queue.pop(0)
+        if current_node == end:
+            print("found")
+            break
         cur.execute("SELECT * FROM connections WHERE person1 = ?",
-                    (queue.pop(0),))
-        print("result", cur.fetchall())
-        return
+                    (current_node,))
+        for i in cur.fetchall():
+            if i[1] not in explored:
+                explored[i[1]] = current_node
+                queue.append(i[1])
+    print("explored:", explored)
+    # record path (from end)
+    path = []
+    tracing = True
+    while tracing:
+        path.append(current_node)
+        current_node = explored[current_node]
+        if current_node is None:
+            return path
 
 
 running = True
 while running:
     search_start = input("from: ")
     search_end = input("to: ")
-    search(search_start, search_end)
+    print(search(search_start, search_end))
+    break

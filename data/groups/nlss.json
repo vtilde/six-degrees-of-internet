@@ -4,6 +4,7 @@
     "name": "NorthernLion Live Super Show",
     "members": [
         {"id": "northernlion", "type": "member"},
-        {"id": "dumbdog", "type": "member"}
+        {"id": "dumbdog", "type": "member"},
+        {"id": "hcjustin", "type": "member"}
     ]
 }
