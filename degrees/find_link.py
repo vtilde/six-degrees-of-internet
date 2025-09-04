@@ -2,11 +2,8 @@ import sqlite3
 
 DB_NAME = "data.db"
 
-con = sqlite3.connect(DB_NAME)
-cur = con.cursor()
-
-
-def search(start, end):
+def search(db, start, end):
+    cur = db.cursor()
     queue = []
     explored = {} # "id": "parent"
     queue.append(start)
@@ -32,10 +29,11 @@ def search(start, end):
         if current_node is None:
             return path
 
-
-running = True
-while running:
-    search_start = input("from: ")
-    search_end = input("to: ")
-    print(search(search_start, search_end))
-    break
+if __name__ == "__main__":
+    running = True
+    con = sqlite3.connect(DB_NAME)
+    while running:
+        search_start = input("from: ")
+        search_end = input("to: ")
+        print(search(con, search_start, search_end))
+        break
