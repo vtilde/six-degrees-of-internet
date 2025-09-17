@@ -1,4 +1,4 @@
-from flask import request, g
+from flask import request, g, render_template
 from degrees import app, find_link
 import sqlite3
 
@@ -12,7 +12,7 @@ def get_db():
 
 @app.route("/")
 def index():
-    return "hewwo wowld"
+    return render_template("index.html")
 
 @app.route("/search")
 def search():
