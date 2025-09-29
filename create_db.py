@@ -4,6 +4,11 @@ import sqlite3
 
 DB_NAME = "degrees/data.db"
 
+try:
+    os.remove(DB_NAME)
+except FileNotFoundError:
+    pass
+
 con = sqlite3.connect(DB_NAME)
 cur = con.cursor()
 cur.execute("CREATE TABLE IF NOT EXISTS people (id TEXT PRIMARY KEY, name TEXT)")
