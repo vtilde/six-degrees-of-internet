@@ -2,7 +2,7 @@ import os
 import json
 import sqlite3
 
-DB_NAME = "data.db"
+DB_NAME = "degrees/data.db"
 
 con = sqlite3.connect(DB_NAME)
 cur = con.cursor()
