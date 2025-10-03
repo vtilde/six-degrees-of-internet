@@ -1,35 +1,30 @@
 import sqlite3
-
-DB_NAME = "data.db"
+from degrees import search_utils
 
 def search(db, start, end):
     cur = db.cursor()
-    queue = []
-    explored = {} # "id": "parent"
-    queue.append(start)
-    explored[start] = None
-    while len(queue) > 0:
-        current_node = queue.pop(0)
+    q = search_utils.Queue()
+    q.explore(start, None, None)
+    q.enqueue(start)
+    while len(q.queue) > 0:
+        current_node = q.dequeue()
         if current_node == end:
-            print("found")
             break
         cur.execute("SELECT * FROM connections WHERE person1 = ?",
                     (current_node,))
         for i in cur.fetchall():
-            if i[1] not in explored:
-                explored[i[1]] = current_node
-                queue.append(i[1])
-    print("explored:", explored)
-    # record path (from end)
-    path = []
-    tracing = True
-    while tracing:
-        path.append(current_node)
-        current_node = explored[current_node]
-        if current_node is None:
-            return path
+            if i[1] not in q.explored:
+                q.explore(i[1], current_node, i[2])
+                q.enqueue(i[1])
+
+    path = q.get_path(current_node)
+    # print(current_node)
+    # for i in path._path:
+    #     print(i.node, i.link)
+    return path._path
 
 if __name__ == "__main__":
+    DB_NAME = "data.db"
     running = True
     con = sqlite3.connect(DB_NAME)
     while running:
