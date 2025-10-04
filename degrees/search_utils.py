@@ -30,20 +30,26 @@ class Path:
         # self._path.insert(0, {"node": node, "link": link})
         self._path.insert(0, Node(node, link))
     
-    def nodes(self):
-        return [i.node for i in self._path]
+    def names(self):
+        return [i.name for i in self._path]
     
+    def get_start_node(self):
+        return self._path[0].name
+    
+    def get_linked_nodes(self):
+        return self._path[1:]
+
     # todo: add iterator
     
 
 
 class Node:
     def __init__(self, node, link):
-        self.node = node
+        self.name = node
         self.link = link # group that connects the node with the prev node
     
     def __repr__(self):
-        return f"{self.node} via {self.link}" 
+        return f"{self.name} via {self.link}" 
 
     def __str__(self):
-        return self.node
+        return self.name

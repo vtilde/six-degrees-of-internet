@@ -21,6 +21,10 @@ def search():
     if search_start is None or search_end is None:
         return "missing parameters"
 
-    chain = find_link.search(get_db(), search_start, search_end)
+    path = find_link.search(get_db(), search_start, search_end)
 
-    return str(chain)
+    return render_template(
+        "search.html",
+        first_node=path.get_start_node(),
+        path=path.get_linked_nodes()
+    )

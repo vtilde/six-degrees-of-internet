@@ -18,10 +18,7 @@ def search(db, start, end):
                 q.enqueue(i[1])
 
     path = q.get_path(current_node)
-    # print(current_node)
-    # for i in path._path:
-    #     print(i.node, i.link)
-    return path._path
+    return path
 
 if __name__ == "__main__":
     DB_NAME = "data.db"
