@@ -1,6 +1,7 @@
-from flask import request, g, render_template
+from flask import request, g, render_template, jsonify
 from degrees import app, find_link
 import sqlite3
+import json
 
 def get_db():
     db = getattr(g, "_database", None)

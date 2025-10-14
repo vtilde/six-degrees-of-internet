@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <script src="{{ url_for('static', filename='index.js') }}"></script>
+    </head>
     <body>
         <form id="search-form" method="GET" action="search">
-            <label for="start">From:</label><input id="start" type="text" name="start"><br>
-            <label for="end">To:</label><input id="end" type="text" name="end"><br>
+            <label for="start">From:</label><input id="start" list="autocomplete" type="text" name="start"><br>
+            <label for="end">To:</label><input id="end" list="autocomplete" type="text" name="end"><br>
             <input id="search-button" type="submit" value="search">
         </form>
+        <datalist id="autocomplete">
+            
+        </datalist>
     </body>
 </html>
