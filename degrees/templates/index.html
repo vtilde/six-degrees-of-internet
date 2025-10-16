@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
         <script src="{{ url_for('static', filename='index.js') }}"></script>
     </head>
     <body>
         <form id="search-form" method="GET" action="search">
-            <label for="start">From:</label><input id="start" list="autocomplete" type="text" name="start"><br>
-            <label for="end">To:</label><input id="end" list="autocomplete" type="text" name="end"><br>
-            <input id="search-button" type="submit" value="search">
+            <div id="search-boxes">
+                <input id="start" list="autocomplete" type="text" name="start" placeholder="Start" class="child">
+                <p class="child">to</p>
+                <input id="end" list="autocomplete" type="text" name="end" placeholder="Destination" class="child">
+            </div>
+            <div id="search-button">
+                <input type="submit" value="Find Path">
+            </div>
         </form>
         <datalist id="autocomplete">
-            
         </datalist>
     </body>
 </html>
