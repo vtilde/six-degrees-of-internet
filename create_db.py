@@ -17,41 +17,49 @@ cur.execute("CREATE TABLE IF NOT EXISTS groups (id TEXT PRIMARY KEY, name TEXT)"
 cur.execute("CREATE TABLE IF NOT EXISTS connections (person1 TEXT, person2 TEXT, via TEXT)")
 con.commit()
 
+def make_list(data):
+    if isinstance(data, dict):
+        return [data]
+    else:
+        return data
+
 people = os.listdir(os.path.join("data", "people"))
 for i in people:
-    data = json.load(open(os.path.join("data", "people", i), "r"))
-    cur.execute("INSERT INTO people VALUES (?, ?)", (
-        data["id"],
-        data["name"]
-    ))
+    data = make_list(json.load(open(os.path.join("data", "people", i), "r")))
+    for person in data:
+        cur.execute("INSERT INTO people VALUES (?, ?)", (
+            person["id"],
+            person["name"]
+        ))
 
 
 groups = os.listdir(os.path.join("data", "groups"))
 missing_people = [] # people in groups with dedicated file missing
 for i in groups:
-    group_data = json.load(open(os.path.join("data", "groups", i), "r"))
-    cur.execute("INSERT INTO groups VALUES (?, ?)", (
-        group_data["id"],
-        group_data["name"]
-    ))
-    for member in group_data["members"]:
-        cur.execute("SELECT EXISTS (SELECT 1 FROM people WHERE id=?)",
-            (member["id"],)
-        ) # (1) if member exists, (0) if not
-        if not cur.fetchone()[0]:
-            cur.execute("INSERT INTO people VALUES (?, ?)", (
-                member["id"],
-                member["id"]
-            ))
-            if member["id"] not in missing_people:
-                missing_people.append(member["id"])
-        member_connections = [x for x in group_data["members"] if x != member]
-        for j in member_connections:
-            cur.execute("INSERT INTO connections VALUES (?, ?, ?)", (
-                member["id"],
-                j["id"],
-                group_data["id"]
-            ))
+    group_file = make_list(json.load(open(os.path.join("data", "groups", i), "r")))
+    for group_data in group_file:
+        cur.execute("INSERT INTO groups VALUES (?, ?)", (
+            group_data["id"],
+            group_data["name"]
+        ))
+        for member in group_data["members"]:
+            cur.execute("SELECT EXISTS (SELECT 1 FROM people WHERE id=?)",
+                (member["id"],)
+            ) # (1) if member exists, (0) if not
+            if not cur.fetchone()[0]:
+                cur.execute("INSERT INTO people VALUES (?, ?)", (
+                    member["id"],
+                    member["id"]
+                ))
+                if member["id"] not in missing_people:
+                    missing_people.append(member["id"])
+            member_connections = [x for x in group_data["members"] if x != member]
+            for j in member_connections:
+                cur.execute("INSERT INTO connections VALUES (?, ?, ?)", (
+                    member["id"],
+                    j["id"],
+                    group_data["id"]
+                ))
 
 con.commit()
 print("missing people files: " + ", ".join(missing_people))

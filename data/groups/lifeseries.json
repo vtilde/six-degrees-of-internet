@@ -1,0 +1,22 @@
+[
+    {
+        "version": "1",
+        "id": "thirdlife",
+        "name": "3rd Life",
+        "type": "series",
+        "members": [
+            {"id": "smajor", "type": "member"},
+            {"id": "grian", "type": "member"}
+        ]
+    },
+    {
+        "version": "1",
+        "id": "lastlife",
+        "name": "Last Life",
+        "type": "series",
+        "members": [
+            {"id": "smajor", "type": "member"},
+            {"id": "grian", "type": "member"}
+        ]
+    }
+]
