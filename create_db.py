@@ -27,6 +27,7 @@ for i in people:
 
 
 groups = os.listdir(os.path.join("data", "groups"))
+missing_people = [] # people in groups with dedicated file missing
 for i in groups:
     group_data = json.load(open(os.path.join("data", "groups", i), "r"))
     cur.execute("INSERT INTO groups VALUES (?, ?)", (
@@ -42,6 +43,8 @@ for i in groups:
                 member["id"],
                 member["id"]
             ))
+            if member["id"] not in missing_people:
+                missing_people.append(member["id"])
         member_connections = [x for x in group_data["members"] if x != member]
         for j in member_connections:
             cur.execute("INSERT INTO connections VALUES (?, ?, ?)", (
@@ -51,6 +54,7 @@ for i in groups:
             ))
 
 con.commit()
+print("missing people files: " + ", ".join(missing_people))
 
 # json file for list of all people
 people = []
