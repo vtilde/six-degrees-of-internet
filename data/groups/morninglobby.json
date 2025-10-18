@@ -4,7 +4,20 @@
     "name": "Morning Lobby",
     "type": "group",
     "members": [
+        {"id": "hafu", "type": "member"},
+        {"id": "5up", "type": "member"},
+        {"id": "stevesuptic", "type": "member"},
+        {"id": "dakotaz", "type": "member"},
         {"id": "dumbdog", "type": "member"},
-        {"id": "smajor", "type": "member"}
+        {"id": "xchocobars", "type": "member"},
+        {"id": "karacorvus", "type": "member"},
+        {"id": "skadj", "type": "member"},
+        {"id": "koji", "type": "member"},
+        {"id": "junkyard147", "type": "member"},
+        {"id": "aipha", "type": "member"},
+        {"id": "antfrost", "type": "member"},
+        {"id": "smajor1995", "type": "member"},
+        {"id": "baycon", "type": "member"},
+        {"id": "peterpark", "type": "member"}
     ]
 }

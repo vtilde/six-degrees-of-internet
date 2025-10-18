@@ -38,7 +38,7 @@ missing_people = [] # people in groups with dedicated file missing
 for i in groups:
     group_file = make_list(json.load(open(os.path.join("data", "groups", i), "r")))
     for group_data in group_file:
-        cur.execute("INSERT INTO groups VALUES (?, ?)", (
+        cur.execute("INSERT OR IGNORE INTO groups VALUES (?, ?)", (
             group_data["id"],
             group_data["name"]
         ))

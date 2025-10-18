@@ -1,0 +1,47 @@
+[
+    {
+        "version": "1",
+        "id": "houseflipperinvitational1",
+        "name": "House Flipper Invitational 1",
+        "type": "collab",
+        "members": [
+            {"id": "jerma985", "type": "member"},
+            {"id": "rtgame", "type": "member"},
+            {"id": "etalyx", "type": "member"},
+            {"id": "dougdoug", "type": "member"},
+            {"id": "vargskelethor", "type": "member"},
+            {"id": "pokelawls", "type": "member"},
+            {"id": "vinnyvinesauce", "type": "member"},
+            {"id": "ludwig", "type": "member"},
+            {"id": "criken", "type": "member"},
+            {"id": "cdawgva", "type": "member"},
+            {"id": "connoreatspants", "type": "member"}
+        ]
+    },{
+        "version": "1",
+        "id": "houseflipperinvitational2",
+        "name": "House Flipper Invitational 2",
+        "type": "collab",
+        "members": [
+            {"id": "jerma985", "type": "member"},
+            {"id": "rtgame", "type": "member"},
+            {"id": "etalyx", "type": "member"},
+            {"id": "dougdoug", "type": "member"},
+            {"id": "vargskelethor", "type": "member"},
+            {"id": "pokelawls", "type": "member"},
+            {"id": "vinnyvinesauce", "type": "member"},
+            {"id": "ludwig", "type": "member"},
+            {"id": "criken", "type": "member"},
+            {"id": "cdawgva", "type": "member"},
+            {"id": "connoreatspants", "type": "member"},
+            {"id": "northernlion", "type": "member"},
+            {"id": "esfand", "type": "member"},
+            {"id": "willneff", "type": "member"},
+            {"id": "kiwo", "type": "member"},
+            {"id": "squeex", "type": "member"},
+            {"id": "bonnie", "type": "member"},
+            {"id": "ster", "type": "member"},
+            {"id": "snuffy", "type": "member"}
+        ]
+    }
+]
