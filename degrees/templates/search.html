@@ -4,10 +4,25 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='search.css') }}">
     </head>
     <body>
-        <p><span class="person-text">{{ first_node }}</span></p>
-        {% for node in path %}
-        <p>is in <span class="link-text">{{ node.link }}</span></p>
-        <p>with <span class="person-text">{{ node.name }}</span></p>
-        {% endfor %}
+        <div id="results">
+            <div id="results-header">
+                {% if length==0 %}
+                There is no connection between {{ first_node.name }} and {{ end_node.name }}
+                {% elif length==1 %}
+                There is 1 degree of separation between {{ first_node.name }} and {{ end_node.name }}
+                {% else %}
+                There are {{ length }} degrees of separation between {{ first_node.name }} and {{ end_node.name }}
+                {% endif %}
+            </div>
+            <div id="results-path">
+                <div class="person-box">{{ first_node.name }}</div>
+                {% for node in path %}
+                <div class="person-arrow">is in</div>
+                <div class="link-box">{{ node.link }}</div>
+                <div class="link-arrow">with</div>
+                <div class="person-box">{{ node.name }}</div>
+                {% endfor %}
+            </div>
+        </div>
     </body>
 </html>

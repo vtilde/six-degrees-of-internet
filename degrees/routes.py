@@ -26,6 +26,8 @@ def search():
 
     return render_template(
         "search.html",
+        length=path.get_length(),
         first_node=path.get_start_node(),
-        path=path.get_linked_nodes()
+        path=path.get_linked_nodes(),
+        end_node=path.get_end_node()
     )

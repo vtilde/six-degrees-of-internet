@@ -1,8 +1,3 @@
-body {
-    font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 2em;
-}
-
 #search-form {
     max-width: fit-content;
     margin-left: auto;
@@ -21,4 +16,9 @@ body {
 input {
     font-size: 1em;
     text-align: center;
+}
+
+body {
+    font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 2em;
 }

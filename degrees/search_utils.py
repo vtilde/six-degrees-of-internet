@@ -34,10 +34,16 @@ class Path:
         return [i.name for i in self._path]
     
     def get_start_node(self):
-        return self._path[0].name
+        return self._path[0]
     
     def get_linked_nodes(self):
         return self._path[1:]
+    
+    def get_end_node(self):
+        return self._path[-1]
+    
+    def get_length(self):
+        return len(self._path)
 
     # todo: add iterator
     
