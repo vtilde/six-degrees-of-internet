@@ -4,7 +4,7 @@ const fillDataList = async function () {
     const datalist = document.getElementById("autocomplete");
     people.forEach(element => {
         let newOption = document.createElement("option");
-        newOption.setAttribute("value", element.id);
+        newOption.setAttribute("value", element.username);
         datalist.appendChild(newOption);
     });
 };
