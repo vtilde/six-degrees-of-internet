@@ -1,23 +1,18 @@
 [
     {
         "version": "1",
-        "id": "northernlion",
-        "name": "NorthernLion"
+        "username": "NorthernLion"
     },{
         "version": "1",
-        "id": "dumbdog",
-        "name": "DumbDog"
+        "username": "DumbDog"
     },{
         "version": "1",
-        "id": "hcjustin",
-        "name": "HCJustin"
+        "username": "HCJustin"
     },{
         "version": "1",
-        "id": "malf",
-        "name": "MALF"
+        "username": "MALF"
     },{
         "version": "1",
-        "id": "flackblag",
-        "name": "FlackBlag"
+        "username": "FlackBlag"
     }
 ]

@@ -12,8 +12,8 @@ except FileNotFoundError:
 
 con = sqlite3.connect(DB_PATH)
 cur = con.cursor()
-cur.execute("CREATE TABLE IF NOT EXISTS people (id TEXT PRIMARY KEY, name TEXT)")
-cur.execute("CREATE TABLE IF NOT EXISTS groups (id TEXT PRIMARY KEY, name TEXT)")
+cur.execute("CREATE TABLE IF NOT EXISTS people (username TEXT PRIMARY KEY)")
+cur.execute("CREATE TABLE IF NOT EXISTS groups (groupname TEXT PRIMARY KEY, grouptype TEXT)")
 cur.execute("CREATE TABLE IF NOT EXISTS connections (person1 TEXT, person2 TEXT, via TEXT)")
 con.commit()
 
@@ -27,10 +27,7 @@ people = os.listdir(os.path.join("data", "people"))
 for i in people:
     data = make_list(json.load(open(os.path.join("data", "people", i), "r")))
     for person in data:
-        cur.execute("INSERT INTO people VALUES (?, ?)", (
-            person["id"],
-            person["name"]
-        ))
+        cur.execute("INSERT INTO people VALUES (?)", [person["username"]])
 
 
 groups = os.listdir(os.path.join("data", "groups"))
@@ -39,26 +36,23 @@ for i in groups:
     group_file = make_list(json.load(open(os.path.join("data", "groups", i), "r")))
     for group_data in group_file:
         cur.execute("INSERT OR IGNORE INTO groups VALUES (?, ?)", (
-            group_data["id"],
-            group_data["name"]
+            group_data["groupname"],
+            group_data["type"]
         ))
         for member in group_data["members"]:
-            cur.execute("SELECT EXISTS (SELECT 1 FROM people WHERE id=?)",
-                (member["id"],)
+            cur.execute("SELECT EXISTS (SELECT 1 FROM people WHERE username=?)",
+                (member["username"],)
             ) # (1) if member exists, (0) if not
             if not cur.fetchone()[0]:
-                cur.execute("INSERT INTO people VALUES (?, ?)", (
-                    member["id"],
-                    member["id"]
-                ))
-                if member["id"] not in missing_people:
-                    missing_people.append(member["id"])
+                cur.execute("INSERT INTO people VALUES (?)", [member["username"]])
+                if member["username"] not in missing_people:
+                    missing_people.append(member["username"])
             member_connections = [x for x in group_data["members"] if x != member]
             for j in member_connections:
                 cur.execute("INSERT INTO connections VALUES (?, ?, ?)", (
-                    member["id"],
-                    j["id"],
-                    group_data["id"]
+                    member["username"],
+                    j["username"],
+                    group_data["groupname"]
                 ))
 
 con.commit()
@@ -66,11 +60,10 @@ print("missing people files: " + ", ".join(missing_people))
 
 # json file for list of all people
 people = []
-cur.execute("SELECT * FROM PEOPLE")
+cur.execute("SELECT * FROM people ORDER BY username")
 for i in cur.fetchall():
     people.append({
-        "id": i[0],
-        "name": i[1]
+        "username": i[0]
     })
 with open(PEOPLE_JSON_PATH, "w") as f:
     json.dump(people, f)

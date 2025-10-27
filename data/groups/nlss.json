@@ -1,11 +1,10 @@
 {
     "version": "1",
-    "id": "nlss",
-    "name": "NorthernLion Live Super Show",
+    "groupname": "NLSS",
     "type": "group",
     "members": [
-        {"id": "northernlion", "type": "member"},
-        {"id": "dumbdog", "type": "member"},
-        {"id": "hcjustin", "type": "member"}
+        {"username": "NorthernLion", "type": "member"},
+        {"username": "DumbDog", "type": "member"},
+        {"username": "HCJustin", "type": "member"}
     ]
 }

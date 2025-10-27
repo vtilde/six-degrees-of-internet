@@ -1,103 +1,78 @@
 [
     {
         "version": "1",
-        "id": "bdoubleo100",
-        "name": "BdoubleO100"
+        "username": "BdoubleO100"
     },{
         "version": "1",
-        "id": "cubfan135",
-        "name": "Cubfan135"
+        "username": "Cubfan135"
     },{
         "version": "1",
-        "id": "docm77",
-        "name": "DocM77"
+        "username": "Docm77"
     },{
         "version": "1",
-        "id": "ethoslab",
-        "name": "EthosLab"
+        "username": "EthosLab"
     },{
         "version": "1",
-        "id": "falsesymmetry",
-        "name": "FalseSymmetry"
+        "username": "FalseSymmetry"
     },{
         "version": "1",
-        "id": "geminitay",
-        "name": "GeminiTay"
+        "username": "GeminiTay"
     },{
         "version": "1",
-        "id": "goodtimeswithscar",
-        "name": "GoodTimesWithScar"
+        "username": "GoodTimesWithScar"
     },{
         "version": "1",
-        "id": "grian",
-        "name": "Grian"
+        "username": "Grian"
     },{
         "version": "1",
-        "id": "hypnotizd",
-        "name": "Hypnotizd"
+        "username": "Hypnotizd"
     },{
         "version": "1",
-        "id": "ijevin",
-        "name": "iJevin"
+        "username": "iJevin"
     },{
         "version": "1",
-        "id": "impulsesv",
-        "name": "ImpulseSV"
+        "username": "ImpulseSV"
     },{
         "version": "1",
-        "id": "joehillstsd",
-        "name": "JoeHillsTSD"
+        "username": "JoeHillsTSD"
     },{
         "version": "1",
-        "id": "keralis",
-        "name": "Keralis"
+        "username": "Keralis"
     },{
         "version": "1",
-        "id": "mumbojumbo",
-        "name": "MumboJumbo"
+        "username": "MumboJumbo"
     },{
         "version": "1",
-        "id": "pearlescentmoon",
-        "name": "PearlescentMoon"
+        "username": "PearlescentMoon"
     },{
         "version": "1",
-        "id": "rendog",
-        "name": "Rendog"
+        "username": "Rendog"
     },{
         "version": "1",
-        "id": "skizzleman",
-        "name": "Skizzleman"
+        "username": "Skizzleman"
     },{
         "version": "1",
-        "id": "smallishbeans",
-        "name": "SmallishBeans"
+        "username": "SmallishBeans"
     },{
         "version": "1",
-        "id": "tangotek",
-        "name": "TangoTek"
+        "username": "TangoTek"
     },{
         "version": "1",
-        "id": "vintagebeef",
-        "name": "VintageBeef"
+        "username": "VintageBeef"
     },{
         "version": "1",
-        "id": "welsknight",
-        "name": "Welsknight"
+        "username": "Welsknight"
     },{
         "version": "1",
-        "id": "xbcrafted",
-        "name": "xBCrafted"
+        "username": "xBCrafted"
     },{
         "version": "1",
-        "id": "xisumavoid",
-        "name": "Xisumavoid"
+        "username": "Xisumavoid"
     },{
         "version": "1",
-        "id": "zedaph",
-        "name": "Zedaph"
+        "username": "Zedaph"
     },{
         "version": "1",
-        "id": "zombiecleo",
-        "name": "ZombieCleo"
+        "username": "ZombieCleo"
     }
 ]
